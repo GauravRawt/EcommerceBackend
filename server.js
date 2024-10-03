@@ -5,6 +5,7 @@ const { DB_URL } = require("./configs/db_configs")
 const userModel = require("./models/userModel")
 const bcrypt = require("bcryptjs")
 const router = require("./route/userRoute")
+const categoryRouter  = require("./route/categoryRoutes")
 
 const app = express()
 
@@ -54,6 +55,7 @@ app.use(express.urlencoded({extended:true}))
 
 //starting server
 app.use("/api/v1/ecom",router)
+app.use("/api/v1/ecom/category",categoryRouter)
 app.listen(PORT,()=>{
     console.log("Server Started at port ", PORT )
 })
